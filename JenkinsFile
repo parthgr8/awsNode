@@ -3,7 +3,7 @@ popeline{
     stages{
         stage('hello'){
             steps{
-                echo 'hello world'
+                echo 'hello world from jenkins'
             }
         } 
     }
