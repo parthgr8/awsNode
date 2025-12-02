@@ -1,11 +1,15 @@
 pipeline{
     agent any
     stages{
+        stage('clean workspace'){
+            steps{
+                cleanWp()
+            }
+        }
         stage('Build'){
             agent{
                 docker{
-                    image 'node:22.11.0-alpine3.20'
-                    args '-u root'
+                    image 'node:18-alpine'
                     reuseNode true 
                 }
             }
@@ -14,6 +18,7 @@ pipeline{
                    ls -l
                    node --version
                    npm install 
+                   npm run build
                    ls -l '''
             }
         } 
