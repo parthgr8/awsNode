@@ -5,14 +5,14 @@ pipeline{
             agent{
                 docker{
                     image 'node:18-alpine'
-                    reuseNode true 
+                    reuseNode false 
                 }
             }
             steps{
                 sh '''
                    ls -l
                    node --version
-                   rm -rf node_modules
+                   rm -rf node_modules package-lock.json
                    npm install 
                    npm run build
                    ls -l '''
