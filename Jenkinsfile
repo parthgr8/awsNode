@@ -12,6 +12,7 @@ pipeline{
                 sh '''
                    ls -l
                    node --version
+                   rm -rf /var/lib/jenkins/workspace/nodeCICD/node_modules
                    npm install 
                    npm run build
                    ls -l '''
